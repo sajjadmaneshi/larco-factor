@@ -24,14 +24,23 @@
             --base-radius: 0.5rem;
             --success:#62ec86;
             --light-warning:#fee89e;
+            --light-warning2: #fff9e8;
         }
+        /*body{*/
+        /*    background-color: var(--light-warning2);*/
+        /*}*/
+
 
         * {
+
             font-family: IRANYekanXFaNum,sans-serif;
         }
 
         .logo {
             width: 10rem
+        }
+        p{
+            margin-bottom: 0;
         }
 
 
@@ -105,15 +114,75 @@
 
         }
 
+        .checkout-summery{
+            border: 2px solid var(--base-color);
+            border-radius: var(--base-radius);
+            list-style: none;
 
+        }
+        .checkout{
+            border: 4px solid var(--base-color);
+            border-radius: 1rem;
+            list-style: none;
+            padding-right: 2rem;
+        }
+        .checkout img{
+            max-height: 30px;
+        }
+        .checkout-summery li,.checkout li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 425px) {
+            .checkout li{
+                padding-right: 7rem;
+            }
+            .checkout li:nth-child(2)::before{
+                content: "";
+                border-radius: 100px 0 0 100px;
+                border:4px solid var(--base-color);
+                border-right: 0;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translatey(-50%);
+                width: 5.5rem;
+                height: 90%;
+            }
+
+            .checkout li:nth-child(2)::after{
+                content: "";
+                border-radius: 100px;
+                background-color: var(--base-color);
+                position: absolute;
+                right: 2.25rem;
+                top: 50%;
+                transform: translatey(-50%);
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+        
+        @media (min-width:768px) {
+            .checkout{
+                width: 75%!important;
+            }
+        }
+
+        .checkout-summery li:not(:last-child),.checkout li:not(:last-child){
+            border-bottom: 2px solid var(--light-warning);
+        }
 
 
     </style>
 </head>
-<body>
+<body >
 <div class="container d-flex flex-column align-items-center mt-3">
     <img src="assets/logo.png" class="logo" alt="larco-land-logo">
-    <div class="invoice-detail rounded-border-card w-100 row mb-3">
+    <div class="invoice-detail rounded-border-card w-100 row mb-3 bg-white">
             <span class="col-4">
                 <span class="d-flex justify-content-around align-items-center">
                     <span>شماره</span>
@@ -137,7 +206,7 @@
             </span>
 
     </div>
-    <div class="seller-buyer-info rounded-border-card w-100 mb-3">
+    <div class="seller-buyer-info rounded-border-card w-100 mb-3 bg-white">
         <div class="row seller-buyer-info__head bg-warning g-0">
             <div class="col-6 p-3">
                 فروشنده
@@ -198,7 +267,7 @@
 
 
     </div>
-    <table class="factor-items w-100  text-center mb-3">
+    <table class="factor-items w-100  text-center mb-3 bg-white">
         <thead>
         <tr>
             <td>نام کالا</td>
@@ -236,7 +305,7 @@
         </tr>
         </tbody>
     </table>
-    <div class="checkout-info rounded-border-card w-100 mb-3">
+    <div class="checkout-info rounded-border-card w-100 mb-3 bg-white">
         <div class="row checkout-info__head bg-warning g-0">
             <div class="col-4 p-3">
                 مبلغ کل خرید
@@ -276,7 +345,51 @@
 
 
     </div>
-    <button class="btn pay-button">پرداخت</button>
+    <ul class="p-0 checkout-summery w-100 bg-white mb-3">
+        <li>
+            <p>دریافت الکترونیک</p>
+            <p>11,11,11</p>
+        </li>
+        <li>
+            <p>دریافت نقدی</p>
+            <p>11,11,11</p>
+        </li>
+        <li>
+            <p>اعتبار وفاداری</p>
+            <p>11,11,11</p>
+        </li>
+        <li class="text-warning fw-bold">
+            <p>مجموع دریافتی</p>
+            <p>11,11,11</p>
+        </li>
+    </ul>
+    <ul class="p-0 checkout w-100  bg-white fw-bolder ">
+        <li>
+            <span >
+                <img alt="اعتبار بعد از این خرید" src="assets/credit-card.png" class="mx-3">
+                اعتبار بعد از این خرید:
+            </span>
+
+            <p>11,11,11</p>
+        </li>
+        <li class="position-relative">
+                <span>
+                <img alt="مانده کیف پول شما" src="assets/wallet.png" class="mx-3">
+               مانده کیف پول شما
+            </span>
+            <p>11,11,11</p>
+
+        </li>
+        <li>
+              <span>
+                <img alt="اعتبار وفاداری شما" src="assets/loyalty.png" class="mx-3">
+               اعتبار وفاداری شما
+            </span>
+
+            <p>11,11,11</p>
+        </li>
+    </ul>
+<!--    <button class="btn pay-button">پرداخت</button>-->
 </div>
 </body>
 </html>
